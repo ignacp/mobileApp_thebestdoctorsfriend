@@ -1,0 +1,19 @@
+<ion-view view-title="Patient List">
+  <ion-content>
+
+    <div class="card"  ng-if="!showPatientsList">
+      <div class="item item-text-wrap">
+        {{message}}
+      </div>
+    </div>
+
+    <ion-list ng-if="showPatientsList">
+      <ion-item ng-repeat="patient in patients" href="#/app/patientslist/{{patient._id}}">
+        <h2><strong>{{patient.firstName}} {{patient.lastName}}</strong></h2>
+        <h3>Age: {{patient.age}}</h3>
+        <h3>Gender: {{patient.gender}}</h3>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

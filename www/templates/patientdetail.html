@@ -1,0 +1,33 @@
+<ion-view view-title="Patients Details">
+
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline" ng-click="toggleDelete()"></button>
+    </div>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <div class="card" ng-if="!showPatient">
+      <div class="item item-text-wrap">
+        {{message}}
+      </div>
+    </div>
+
+    <ion-list show-delete="shouldShowDelete" ng-if="showPatient">
+      <ion-item class="item item-text-wrap">
+        <h2><strong>{{patient.firstName}} {{patient.lastName}}</strong></h2>
+        <h3><strong>Age:</strong> {{patient.age}}</h3>
+        <h3><strong>Gender:</strong> {{patient.gender}}</h3>
+        <h3><strong>Email:</strong> {{patient.email}}</h3>
+        <h3><strong>History:</strong> {{patient.medicalHistory}}</h3>
+        <h3><strong>Treatment:</strong> {{patient.medicalTreatment}}</h3>
+        <h3><strong>Appointment:</strong> {{patient.nextAppointment | date:'MMMM dd, yyyy'}}</h3>
+
+        <ion-delete-button class="ion-minus-circled" ng-click="deletePatient(patient._id)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
